@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<News> listNews = new ArrayList<>();
         listNews.add(new News("test title", "test info"));
+        listNews.add(new News("test title", "test info"));
 
         imagetView = findViewById(R.id.imageView);
         button = findViewById(R.id.button);
