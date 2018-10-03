@@ -1,7 +1,11 @@
 #Internal package file, do not edit.
-#Tue Oct 02 00:41:05 MSK 2018
+#Wed Oct 03 12:41:05 MSK 2018
+1.base=/home/max/AndroidStudioProjects/Test/app/build/intermediates/transforms/dexMerger/debug/1
 0.baseType=DIRECTORY
-0.base=/home/max/AndroidStudioProjects/Test/app/build/intermediates/transforms/dexMerger/debug/0
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
 0.path=classes.dex
 0.set=DEX
-count=1
+0.base=/home/max/AndroidStudioProjects/Test/app/build/intermediates/transforms/dexMerger/debug/0
+1.path=classes.dex
