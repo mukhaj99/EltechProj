@@ -1,84 +1,351 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<RelativeLayout
     tools:context=".MainActivity"
-    android:exported="true">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="368dp"
-        android:layout_height="50dp"
+        android:id="@+id/layout1"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="HobaListener"
-            android:text="пн" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="HobaListener"
-            android:text="вт" />
+        android:layout_width="match_parent" >
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:onClick="HobaListener"
-            android:text="ср" />
-
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="254dp"
+            android:textColor="#ffff"
+            android:text="@string/monday"
+            android:onClick="DayClickListener"
+            android:background="@color/colorAccent"/>
         <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:onClick="HobaListener"
-            android:text="чт" />
-
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp"
+            android:textColor="#ffff"
+            android:text="@string/tuesday"
+            android:onClick="DayClickListener"
+            android:background="@color/colorAccent"/>
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:onClick="HobaListener"
-            android:text="пт" />
-
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="154dp"
+            android:textColor="#ffff"
+            android:text="@string/wednesday"
+            android:onClick="DayClickListener"
+            android:background="@color/colorAccent"/>
+        <Button
+            android:id="@+id/button2"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:layout_weight="1"
+            android:textColor="#ffff"
+            android:text="@string/thursday"
+            android:onClick="DayClickListener"
+            android:background="@color/colorAccent"/>
+        <Button
+            android:id="@+id/button7"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="304dp"
+            android:textColor="#ffff"
+            android:text="@string/friday"
+            android:onClick="DayClickListener"
+            android:background="@color/colorAccent"/>
         <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
             android:layout_weight="1"
-            android:onClick="HobaListener"
-            android:text="сб" />
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="104dp"
+            android:textColor="#ffff"
+            android:text="@string/saturday"
+            android:onClick="DayClickListener"
+            android:background="@color/colorAccent"/>
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="437dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp">
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/counterLecture1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+            android:text="@string/Number"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/studyObj1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lesson_name" />
+
+        <TextView
+            android:id="@+id/teacher1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studyObj1"
+            android:text="@string/Teacher" />
+
+        <TextView
+            android:id="@+id/lectureHall1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher1"
+            android:layout_alignParentEnd="true"
+            android:text="@string/Lecture_hall" />
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher1"
+            android:text="@string/Time" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativelayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/counterLecture2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Number"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/studyObj2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lesson_name" />
+
+        <TextView
+            android:id="@+id/teacher2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studyObj2"
+            android:text="@string/Teacher" />
+
+        <TextView
+            android:id="@+id/lectureHall2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher2"
+            android:layout_alignParentEnd="true"
+            android:text="@string/Lecture_hall" />
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher2"
+            android:text="@string/Time" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativelayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativelayout2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/counterLecture3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Number"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/studyObj3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lesson_name" />
+
+        <TextView
+            android:id="@+id/teacher3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studyObj3"
+            android:text="@string/Teacher" />
+
+        <TextView
+            android:id="@+id/lectureHall3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher3"
+            android:layout_alignParentEnd="true"
+            android:text="@string/Lecture_hall" />
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher3"
+            android:text="@string/Time" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativelayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativelayout3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/counterLecture4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Number"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/studyObj4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lesson_name" />
+
+        <TextView
+            android:id="@+id/teacher4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studyObj4"
+            android:text="@string/Teacher" />
+
+        <TextView
+            android:id="@+id/lectureHall4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher4"
+            android:layout_alignParentEnd="true"
+            android:text="@string/Lecture_hall" />
+
+        <TextView
+            android:id="@+id/time4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher4"
+            android:text="@string/Time" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativelayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativelayout4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/counterLectur5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Number"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/studyObj5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lesson_name" />
+
+        <TextView
+            android:id="@+id/teacher5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studyObj5"
+            android:text="@string/Teacher" />
+
+        <TextView
+            android:id="@+id/lectureHall5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher5"
+            android:layout_alignParentEnd="true"
+            android:text="@string/Lecture_hall" />
+
+        <TextView
+            android:id="@+id/time5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher5"
+            android:text="@string/Time" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativelayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativelayout5"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/counterLecture6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Number"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/studyObj6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lesson_name" />
+
+        <TextView
+            android:id="@+id/teacher6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studyObj6"
+            android:text="@string/Teacher" />
+
+        <TextView
+            android:id="@+id/lectureHall6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher6"
+            android:layout_alignParentEnd="true"
+            android:text="@string/Lecture_hall" />
+
+        <TextView
+            android:id="@+id/time6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/teacher6"
+            android:text="@string/Time" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
