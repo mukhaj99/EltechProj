@@ -81,6 +81,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:visibility="invisible"
         android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -89,12 +90,7 @@
         android:layout_marginTop="15dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/counterLecture1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Number"
-            android:layout_alignParentEnd="true"/>
+
 
         <TextView
             android:id="@+id/studyObj1"
@@ -127,6 +123,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="invisible"
         android:id="@+id/relativelayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,13 +131,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/counterLecture2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Number"
-            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/studyObj2"
@@ -171,6 +161,7 @@
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
+        android:visibility="invisible"
         android:id="@+id/relativelayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -178,13 +169,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/counterLecture3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Number"
-            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/studyObj3"
@@ -215,6 +199,7 @@
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
+        android:visibility="invisible"
         android:id="@+id/relativelayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -222,13 +207,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/counterLecture4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Number"
-            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/studyObj4"
@@ -259,6 +237,7 @@
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
+        android:visibility="invisible"
         android:id="@+id/relativelayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -266,13 +245,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/counterLectur5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Number"
-            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/studyObj5"
@@ -303,6 +275,7 @@
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
+        android:visibility="invisible"
         android:id="@+id/relativelayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -310,13 +283,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/counterLecture6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Number"
-            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/studyObj6"

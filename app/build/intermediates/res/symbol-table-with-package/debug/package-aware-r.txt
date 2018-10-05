@@ -697,12 +697,6 @@ id clip_vertical
 id collapseActionView
 id content
 id contentPanel
-id counterLectur5
-id counterLecture1
-id counterLecture2
-id counterLecture3
-id counterLecture4
-id counterLecture6
 id custom
 id customPanel
 id decor_content_parent

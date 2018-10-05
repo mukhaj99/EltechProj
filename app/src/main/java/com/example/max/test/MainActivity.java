@@ -3,6 +3,7 @@ package com.example.max.test;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -12,8 +13,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity {
-
-    TextView studyObjText,teacherText,lectureHallText,timeText;
     BufferedReader reader;
     Timetable[] arrTimeTable;
 
@@ -58,339 +57,139 @@ public class MainActivity extends AppCompatActivity {
 
     public void DayClickListener(View view) throws IOException {
         setContentView(R.layout.activity_main);
+        TextView studyObjText[],teacherText[],lectureHallText[],timeText[];
+
+        studyObjText = new TextView[6];
+        studyObjText[0] = findViewById(R.id.studyObj1);
+        studyObjText[1] = findViewById(R.id.studyObj2);
+        studyObjText[2] = findViewById(R.id.studyObj3);
+        studyObjText[3] = findViewById(R.id.studyObj4);
+        studyObjText[4] = findViewById(R.id.studyObj5);
+        studyObjText[5] = findViewById(R.id.studyObj6);
+
+        teacherText = new TextView[6];
+        teacherText[0] = findViewById(R.id.teacher1);
+        teacherText[1] = findViewById(R.id.teacher2);
+        teacherText[2] = findViewById(R.id.teacher3);
+        teacherText[3] = findViewById(R.id.teacher4);
+        teacherText[4] = findViewById(R.id.teacher5);
+        teacherText[5] = findViewById(R.id.teacher6);
+
+        lectureHallText = new TextView[6];
+        lectureHallText[0] = findViewById(R.id.lectureHall1);
+        lectureHallText[1] = findViewById(R.id.lectureHall2);
+        lectureHallText[2] = findViewById(R.id.lectureHall3);
+        lectureHallText[3] = findViewById(R.id.lectureHall4);
+        lectureHallText[4] = findViewById(R.id.lectureHall5);
+        lectureHallText[5] = findViewById(R.id.lectureHall6);
+
+        timeText = new TextView[6];
+        timeText[0] = findViewById(R.id.time1);
+        timeText[1] = findViewById(R.id.time2);
+        timeText[2] = findViewById(R.id.time3);
+        timeText[3] = findViewById(R.id.time4);
+        timeText[4] = findViewById(R.id.time5);
+        timeText[5] = findViewById(R.id.time6);
+
+        RelativeLayout relativelayout[] = new RelativeLayout[6];
+        relativelayout[0] =(RelativeLayout) findViewById(R.id.relativelayout);
+        relativelayout[1] =(RelativeLayout) findViewById(R.id.relativelayout2);
+        relativelayout[2] =(RelativeLayout) findViewById(R.id.relativelayout3);
+        relativelayout[3] =(RelativeLayout) findViewById(R.id.relativelayout4);
+        relativelayout[4] =(RelativeLayout) findViewById(R.id.relativelayout5);
+        relativelayout[5] =(RelativeLayout) findViewById(R.id.relativelayout6);
 
         String day = ((TextView)view).getText().toString();
+        int numberOfDay;
+        int countLesson = 0, realCountLesson = 0;
         switch(day){
             case("Пн"):
-                studyObjText = findViewById(R.id.studyObj1);
-                lectureHallText = findViewById(R.id.lectureHall1);
-                teacherText = findViewById(R.id.teacher1);
-                timeText = findViewById(R.id.time1);
-                studyObjText.setText(arrTimeTable[0].lessons[0].GetLessons());
-                lectureHallText.setText(arrTimeTable[0].lessons[0].GetLectureHall());
-                teacherText.setText(arrTimeTable[0].lessons[0].GetTeacher());
-                timeText.setText(arrTimeTable[0].lessons[0].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj2);
-                lectureHallText = findViewById(R.id.lectureHall2);
-                teacherText = findViewById(R.id.teacher2);
-                timeText = findViewById(R.id.time2);
-                studyObjText.setText(arrTimeTable[0].lessons[1].GetLessons());
-                lectureHallText.setText(arrTimeTable[0].lessons[1].GetLectureHall());
-                teacherText.setText(arrTimeTable[0].lessons[1].GetTeacher());
-                timeText.setText(arrTimeTable[0].lessons[1].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj3);
-                lectureHallText = findViewById(R.id.lectureHall3);
-                teacherText = findViewById(R.id.teacher3);
-                timeText = findViewById(R.id.time3);
-                studyObjText.setText(arrTimeTable[0].lessons[2].GetLessons());
-                lectureHallText.setText(arrTimeTable[0].lessons[2].GetLectureHall());
-                teacherText.setText(arrTimeTable[0].lessons[2].GetTeacher());
-                timeText.setText(arrTimeTable[0].lessons[2].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj4);
-                lectureHallText = findViewById(R.id.lectureHall4);
-                teacherText = findViewById(R.id.teacher4);
-                timeText = findViewById(R.id.time4);
-                studyObjText.setText(arrTimeTable[0].lessons[3].GetLessons());
-                lectureHallText.setText(arrTimeTable[0].lessons[3].GetLectureHall());
-                teacherText.setText(arrTimeTable[0].lessons[3].GetTeacher());
-                timeText.setText(arrTimeTable[0].lessons[3].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj5);
-                lectureHallText = findViewById(R.id.lectureHall5);
-                teacherText = findViewById(R.id.teacher5);
-                timeText = findViewById(R.id.time5);
-                studyObjText.setText(arrTimeTable[0].lessons[4].GetLessons());
-                lectureHallText.setText(arrTimeTable[0].lessons[4].GetLectureHall());
-                teacherText.setText(arrTimeTable[0].lessons[4].GetTeacher());
-                timeText.setText(arrTimeTable[0].lessons[4].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj6);
-                lectureHallText = findViewById(R.id.lectureHall6);
-                teacherText = findViewById(R.id.teacher6);
-                timeText = findViewById(R.id.time6);
-                studyObjText.setText(arrTimeTable[0].lessons[5].GetLessons());
-                lectureHallText.setText(arrTimeTable[0].lessons[5].GetLectureHall());
-                teacherText.setText(arrTimeTable[0].lessons[5].GetTeacher());
-                timeText.setText(arrTimeTable[0].lessons[5].GetTime());
+                SetDay(0,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 break;
             case("Вт"):
-                studyObjText = findViewById(R.id.studyObj1);
-                lectureHallText = findViewById(R.id.lectureHall1);
-                teacherText = findViewById(R.id.teacher1);
-                timeText = findViewById(R.id.time1);
-                studyObjText.setText(arrTimeTable[1].lessons[0].GetLessons());
-                lectureHallText.setText(arrTimeTable[1].lessons[0].GetLectureHall());
-                teacherText.setText(arrTimeTable[1].lessons[0].GetTeacher());
-                timeText.setText(arrTimeTable[1].lessons[0].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj2);
-                lectureHallText = findViewById(R.id.lectureHall2);
-                teacherText = findViewById(R.id.teacher2);
-                timeText = findViewById(R.id.time2);
-                studyObjText.setText(arrTimeTable[1].lessons[1].GetLessons());
-                lectureHallText.setText(arrTimeTable[1].lessons[1].GetLectureHall());
-                teacherText.setText(arrTimeTable[1].lessons[1].GetTeacher());
-                timeText.setText(arrTimeTable[1].lessons[1].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj3);
-                lectureHallText = findViewById(R.id.lectureHall3);
-                teacherText = findViewById(R.id.teacher3);
-                timeText = findViewById(R.id.time3);
-                studyObjText.setText(arrTimeTable[1].lessons[2].GetLessons());
-                lectureHallText.setText(arrTimeTable[1].lessons[2].GetLectureHall());
-                teacherText.setText(arrTimeTable[1].lessons[2].GetTeacher());
-                timeText.setText(arrTimeTable[1].lessons[2].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj4);
-                lectureHallText = findViewById(R.id.lectureHall4);
-                teacherText = findViewById(R.id.teacher4);
-                timeText = findViewById(R.id.time4);
-                studyObjText.setText(arrTimeTable[1].lessons[3].GetLessons());
-                lectureHallText.setText(arrTimeTable[1].lessons[3].GetLectureHall());
-                teacherText.setText(arrTimeTable[1].lessons[3].GetTeacher());
-                timeText.setText(arrTimeTable[1].lessons[3].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj5);
-                lectureHallText = findViewById(R.id.lectureHall5);
-                teacherText = findViewById(R.id.teacher5);
-                timeText = findViewById(R.id.time5);
-                studyObjText.setText(arrTimeTable[1].lessons[4].GetLessons());
-                lectureHallText.setText(arrTimeTable[1].lessons[4].GetLectureHall());
-                teacherText.setText(arrTimeTable[1].lessons[4].GetTeacher());
-                timeText.setText(arrTimeTable[1].lessons[4].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj6);
-                lectureHallText = findViewById(R.id.lectureHall6);
-                teacherText = findViewById(R.id.teacher6);
-                timeText = findViewById(R.id.time6);
-                studyObjText.setText(arrTimeTable[1].lessons[5].GetLessons());
-                lectureHallText.setText(arrTimeTable[1].lessons[5].GetLectureHall());
-                teacherText.setText(arrTimeTable[1].lessons[5].GetTeacher());
-                timeText.setText(arrTimeTable[1].lessons[5].GetTime());
+                SetDay(1,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 break;
             case("Ср"):
-                studyObjText = findViewById(R.id.studyObj1);
-                lectureHallText = findViewById(R.id.lectureHall1);
-                teacherText = findViewById(R.id.teacher1);
-                timeText = findViewById(R.id.time1);
-                studyObjText.setText(arrTimeTable[2].lessons[0].GetLessons());
-                lectureHallText.setText(arrTimeTable[2].lessons[0].GetLectureHall());
-                teacherText.setText(arrTimeTable[2].lessons[0].GetTeacher());
-                timeText.setText(arrTimeTable[2].lessons[0].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj2);
-                lectureHallText = findViewById(R.id.lectureHall2);
-                teacherText = findViewById(R.id.teacher2);
-                timeText = findViewById(R.id.time2);
-                studyObjText.setText(arrTimeTable[2].lessons[1].GetLessons());
-                lectureHallText.setText(arrTimeTable[2].lessons[1].GetLectureHall());
-                teacherText.setText(arrTimeTable[2].lessons[1].GetTeacher());
-                timeText.setText(arrTimeTable[2].lessons[1].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj3);
-                lectureHallText = findViewById(R.id.lectureHall3);
-                teacherText = findViewById(R.id.teacher3);
-                timeText = findViewById(R.id.time3);
-                studyObjText.setText(arrTimeTable[2].lessons[2].GetLessons());
-                lectureHallText.setText(arrTimeTable[2].lessons[2].GetLectureHall());
-                teacherText.setText(arrTimeTable[2].lessons[2].GetTeacher());
-                timeText.setText(arrTimeTable[2].lessons[2].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj4);
-                lectureHallText = findViewById(R.id.lectureHall4);
-                teacherText = findViewById(R.id.teacher4);
-                timeText = findViewById(R.id.time4);
-                studyObjText.setText(arrTimeTable[2].lessons[3].GetLessons());
-                lectureHallText.setText(arrTimeTable[2].lessons[3].GetLectureHall());
-                teacherText.setText(arrTimeTable[2].lessons[3].GetTeacher());
-                timeText.setText(arrTimeTable[2].lessons[3].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj5);
-                lectureHallText = findViewById(R.id.lectureHall5);
-                teacherText = findViewById(R.id.teacher5);
-                timeText = findViewById(R.id.time5);
-                studyObjText.setText(arrTimeTable[2].lessons[4].GetLessons());
-                lectureHallText.setText(arrTimeTable[2].lessons[4].GetLectureHall());
-                teacherText.setText(arrTimeTable[2].lessons[4].GetTeacher());
-                timeText.setText(arrTimeTable[2].lessons[4].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj6);
-                lectureHallText = findViewById(R.id.lectureHall6);
-                teacherText = findViewById(R.id.teacher6);
-                timeText = findViewById(R.id.time6);
-                studyObjText.setText(arrTimeTable[2].lessons[5].GetLessons());
-                lectureHallText.setText(arrTimeTable[2].lessons[5].GetLectureHall());
-                teacherText.setText(arrTimeTable[2].lessons[5].GetTeacher());
-                timeText.setText(arrTimeTable[2].lessons[5].GetTime());
+                SetDay(2,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 break;
             case("Чт"):
-                studyObjText = findViewById(R.id.studyObj1);
-                lectureHallText = findViewById(R.id.lectureHall1);
-                teacherText = findViewById(R.id.teacher1);
-                timeText = findViewById(R.id.time1);
-                studyObjText.setText(arrTimeTable[3].lessons[0].GetLessons());
-                lectureHallText.setText(arrTimeTable[3].lessons[0].GetLectureHall());
-                teacherText.setText(arrTimeTable[3].lessons[0].GetTeacher());
-                timeText.setText(arrTimeTable[3].lessons[0].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj2);
-                lectureHallText = findViewById(R.id.lectureHall2);
-                teacherText = findViewById(R.id.teacher2);
-                timeText = findViewById(R.id.time2);
-                studyObjText.setText(arrTimeTable[3].lessons[1].GetLessons());
-                lectureHallText.setText(arrTimeTable[3].lessons[1].GetLectureHall());
-                teacherText.setText(arrTimeTable[3].lessons[1].GetTeacher());
-                timeText.setText(arrTimeTable[3].lessons[1].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj3);
-                lectureHallText = findViewById(R.id.lectureHall3);
-                teacherText = findViewById(R.id.teacher3);
-                timeText = findViewById(R.id.time3);
-                studyObjText.setText(arrTimeTable[3].lessons[2].GetLessons());
-                lectureHallText.setText(arrTimeTable[3].lessons[2].GetLectureHall());
-                teacherText.setText(arrTimeTable[3].lessons[2].GetTeacher());
-                timeText.setText(arrTimeTable[3].lessons[2].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj4);
-                lectureHallText = findViewById(R.id.lectureHall4);
-                teacherText = findViewById(R.id.teacher4);
-                timeText = findViewById(R.id.time4);
-                studyObjText.setText(arrTimeTable[3].lessons[3].GetLessons());
-                lectureHallText.setText(arrTimeTable[3].lessons[3].GetLectureHall());
-                teacherText.setText(arrTimeTable[3].lessons[3].GetTeacher());
-                timeText.setText(arrTimeTable[3].lessons[3].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj5);
-                lectureHallText = findViewById(R.id.lectureHall5);
-                teacherText = findViewById(R.id.teacher5);
-                timeText = findViewById(R.id.time5);
-                studyObjText.setText(arrTimeTable[3].lessons[4].GetLessons());
-                lectureHallText.setText(arrTimeTable[3].lessons[4].GetLectureHall());
-                teacherText.setText(arrTimeTable[3].lessons[4].GetTeacher());
-                timeText.setText(arrTimeTable[3].lessons[4].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj6);
-                lectureHallText = findViewById(R.id.lectureHall6);
-                teacherText = findViewById(R.id.teacher6);
-                timeText = findViewById(R.id.time6);
-                studyObjText.setText(arrTimeTable[3].lessons[5].GetLessons());
-                lectureHallText.setText(arrTimeTable[3].lessons[5].GetLectureHall());
-                teacherText.setText(arrTimeTable[3].lessons[5].GetTeacher());
-                timeText.setText(arrTimeTable[3].lessons[5].GetTime());
+                SetDay(3,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 break;
             case("Пт"):
-                studyObjText = findViewById(R.id.studyObj1);
-                lectureHallText = findViewById(R.id.lectureHall1);
-                teacherText = findViewById(R.id.teacher1);
-                timeText = findViewById(R.id.time1);
-                studyObjText.setText(arrTimeTable[4].lessons[0].GetLessons());
-                lectureHallText.setText(arrTimeTable[4].lessons[0].GetLectureHall());
-                teacherText.setText(arrTimeTable[4].lessons[0].GetTeacher());
-                timeText.setText(arrTimeTable[4].lessons[0].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj2);
-                lectureHallText = findViewById(R.id.lectureHall2);
-                teacherText = findViewById(R.id.teacher2);
-                timeText = findViewById(R.id.time2);
-                studyObjText.setText(arrTimeTable[4].lessons[1].GetLessons());
-                lectureHallText.setText(arrTimeTable[4].lessons[1].GetLectureHall());
-                teacherText.setText(arrTimeTable[4].lessons[1].GetTeacher());
-                timeText.setText(arrTimeTable[4].lessons[1].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj3);
-                lectureHallText = findViewById(R.id.lectureHall3);
-                teacherText = findViewById(R.id.teacher3);
-                timeText = findViewById(R.id.time3);
-                studyObjText.setText(arrTimeTable[4].lessons[2].GetLessons());
-                lectureHallText.setText(arrTimeTable[4].lessons[2].GetLectureHall());
-                teacherText.setText(arrTimeTable[4].lessons[2].GetTeacher());
-                timeText.setText(arrTimeTable[4].lessons[2].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj4);
-                lectureHallText = findViewById(R.id.lectureHall4);
-                teacherText = findViewById(R.id.teacher4);
-                timeText = findViewById(R.id.time4);
-                studyObjText.setText(arrTimeTable[4].lessons[3].GetLessons());
-                lectureHallText.setText(arrTimeTable[4].lessons[3].GetLectureHall());
-                teacherText.setText(arrTimeTable[4].lessons[3].GetTeacher());
-                timeText.setText(arrTimeTable[4].lessons[3].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj5);
-                lectureHallText = findViewById(R.id.lectureHall5);
-                teacherText = findViewById(R.id.teacher5);
-                timeText = findViewById(R.id.time5);
-                studyObjText.setText(arrTimeTable[4].lessons[4].GetLessons());
-                lectureHallText.setText(arrTimeTable[4].lessons[4].GetLectureHall());
-                teacherText.setText(arrTimeTable[4].lessons[4].GetTeacher());
-                timeText.setText(arrTimeTable[4].lessons[4].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj6);
-                lectureHallText = findViewById(R.id.lectureHall6);
-                teacherText = findViewById(R.id.teacher6);
-                timeText = findViewById(R.id.time6);
-                studyObjText.setText(arrTimeTable[4].lessons[5].GetLessons());
-                lectureHallText.setText(arrTimeTable[4].lessons[5].GetLectureHall());
-                teacherText.setText(arrTimeTable[4].lessons[5].GetTeacher());
-                timeText.setText(arrTimeTable[4].lessons[5].GetTime());
+                SetDay(4,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 break;
             case("Сб"):
-                studyObjText = findViewById(R.id.studyObj1);
-                lectureHallText = findViewById(R.id.lectureHall1);
-                teacherText = findViewById(R.id.teacher1);
-                timeText = findViewById(R.id.time1);
-                studyObjText.setText(arrTimeTable[6].lessons[0].GetLessons());
-                lectureHallText.setText(arrTimeTable[6].lessons[0].GetLectureHall());
-                teacherText.setText(arrTimeTable[6].lessons[0].GetTeacher());
-                timeText.setText(arrTimeTable[6].lessons[0].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj2);
-                lectureHallText = findViewById(R.id.lectureHall2);
-                teacherText = findViewById(R.id.teacher2);
-                timeText = findViewById(R.id.time2);
-                studyObjText.setText(arrTimeTable[6].lessons[1].GetLessons());
-                lectureHallText.setText(arrTimeTable[6].lessons[1].GetLectureHall());
-                teacherText.setText(arrTimeTable[6].lessons[1].GetTeacher());
-                timeText.setText(arrTimeTable[6].lessons[1].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj3);
-                lectureHallText = findViewById(R.id.lectureHall3);
-                teacherText = findViewById(R.id.teacher3);
-                timeText = findViewById(R.id.time3);
-                studyObjText.setText(arrTimeTable[6].lessons[2].GetLessons());
-                lectureHallText.setText(arrTimeTable[6].lessons[2].GetLectureHall());
-                teacherText.setText(arrTimeTable[6].lessons[2].GetTeacher());
-                timeText.setText(arrTimeTable[6].lessons[2].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj4);
-                lectureHallText = findViewById(R.id.lectureHall4);
-                teacherText = findViewById(R.id.teacher4);
-                timeText = findViewById(R.id.time4);
-                studyObjText.setText(arrTimeTable[6].lessons[3].GetLessons());
-                lectureHallText.setText(arrTimeTable[6].lessons[3].GetLectureHall());
-                teacherText.setText(arrTimeTable[6].lessons[3].GetTeacher());
-                timeText.setText(arrTimeTable[6].lessons[3].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj5);
-                lectureHallText = findViewById(R.id.lectureHall5);
-                teacherText = findViewById(R.id.teacher5);
-                timeText = findViewById(R.id.time5);
-                studyObjText.setText(arrTimeTable[6].lessons[4].GetLessons());
-                lectureHallText.setText(arrTimeTable[6].lessons[4].GetLectureHall());
-                teacherText.setText(arrTimeTable[6].lessons[4].GetTeacher());
-                timeText.setText(arrTimeTable[6].lessons[4].GetTime());
-
-                studyObjText = findViewById(R.id.studyObj6);
-                lectureHallText = findViewById(R.id.lectureHall6);
-                teacherText = findViewById(R.id.teacher6);
-                timeText = findViewById(R.id.time6);
-                studyObjText.setText(arrTimeTable[6].lessons[5].GetLessons());
-                lectureHallText.setText(arrTimeTable[6].lessons[5].GetLectureHall());
-                teacherText.setText(arrTimeTable[6].lessons[5].GetTeacher());
-                timeText.setText(arrTimeTable[6].lessons[5].GetTime());
+                SetDay(5,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 break;
+        }
+    }
+
+    public void SetDay(int numberOfDay, View[] relativelayout, TextView[] studyObjText,
+                       TextView[] lectureHallText, TextView[] teacherText, TextView[] timeText){
+        int countLesson = 0, realCountLesson = 0;
+        if(!arrTimeTable[numberOfDay].lessons[countLesson].GetLessons().equals("null")) {
+            relativelayout[realCountLesson].setVisibility(View.VISIBLE);
+
+            studyObjText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLessons());
+            lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
+            teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
+            timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
+            realCountLesson++;
+        }
+        countLesson++;
+
+        if(!arrTimeTable[numberOfDay].lessons[countLesson].GetLessons().equals("null")) {
+            relativelayout[realCountLesson].setVisibility(View.VISIBLE);
+
+            studyObjText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLessons());
+            lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
+            teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
+            timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
+            realCountLesson++;
+        }
+        countLesson++;
+
+        if(!arrTimeTable[numberOfDay].lessons[countLesson].GetLessons().equals("null")) {
+            relativelayout[realCountLesson].setVisibility(View.VISIBLE);
+
+            studyObjText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLessons());
+            lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
+            teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
+            timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
+            realCountLesson++;
+        }
+        countLesson++;
+
+        if(!arrTimeTable[numberOfDay].lessons[countLesson].GetLessons().equals("null")) {
+            relativelayout[realCountLesson].setVisibility(View.VISIBLE);
+
+            studyObjText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLessons());
+            lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
+            teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
+            timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
+            realCountLesson++;
+        }
+        countLesson++;
+
+        if(!arrTimeTable[numberOfDay].lessons[countLesson].GetLessons().equals("null")) {
+            relativelayout[realCountLesson].setVisibility(View.VISIBLE);
+
+            studyObjText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLessons());
+            lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
+            teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
+            timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
+            realCountLesson++;
+        }
+        countLesson++;
+
+        if(!arrTimeTable[numberOfDay].lessons[countLesson].GetLessons().equals("null")) {
+            relativelayout[realCountLesson].setVisibility(View.VISIBLE);
+
+            studyObjText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLessons());
+            lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
+            teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
+            timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
+            realCountLesson++;
         }
     }
 }
