@@ -11,31 +11,35 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     BufferedReader reader;
-    Timetable[] arrTimeTable;
+    static Timetable[] arrTimeTable;
+    static TextView studyObjText[],teacherText[],lectureHallText[],timeText[];
+    static RelativeLayout relativelayout[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        studyObjText = getStudyObjText();
+        teacherText = getTeacherText();
+        lectureHallText = getLectureHallText();
+        timeText = getTimeText();
+        relativelayout = getLayout();
+
         InputStream is = getResources().openRawResource(R.raw.inputtimetable);
         try {
             reader = new BufferedReader(new InputStreamReader(is, "utf-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        } catch (UnsupportedEncodingException e) { e.printStackTrace(); }
 
         String timeTableString[] = new String[12];
-
         for(int i = 0; i < 12; ++i){
             try {
                 timeTableString[i] = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            } catch (IOException e) { e.printStackTrace(); }
         }
 
         String[] oneDay;
@@ -53,73 +57,71 @@ public class MainActivity extends AppCompatActivity {
                     countLesson++;
             }
         }
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        if(day == 1){
+            //ToDo Выходной
+        }else {
+            if(week%2 == 0) {
+                SetDay(day - 2, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+            }
+        }
     }
 
     public void DayClickListener(View view) throws IOException {
         setContentView(R.layout.activity_main);
-        TextView studyObjText[],teacherText[],lectureHallText[],timeText[];
 
-        studyObjText = new TextView[6];
-        studyObjText[0] = findViewById(R.id.studyObj1);
-        studyObjText[1] = findViewById(R.id.studyObj2);
-        studyObjText[2] = findViewById(R.id.studyObj3);
-        studyObjText[3] = findViewById(R.id.studyObj4);
-        studyObjText[4] = findViewById(R.id.studyObj5);
-        studyObjText[5] = findViewById(R.id.studyObj6);
+        relativelayout = getLayout();
+        studyObjText = getStudyObjText();
+        teacherText = getTeacherText();
+        lectureHallText = getLectureHallText();
+        timeText = getTimeText();
 
-        teacherText = new TextView[6];
-        teacherText[0] = findViewById(R.id.teacher1);
-        teacherText[1] = findViewById(R.id.teacher2);
-        teacherText[2] = findViewById(R.id.teacher3);
-        teacherText[3] = findViewById(R.id.teacher4);
-        teacherText[4] = findViewById(R.id.teacher5);
-        teacherText[5] = findViewById(R.id.teacher6);
-
-        lectureHallText = new TextView[6];
-        lectureHallText[0] = findViewById(R.id.lectureHall1);
-        lectureHallText[1] = findViewById(R.id.lectureHall2);
-        lectureHallText[2] = findViewById(R.id.lectureHall3);
-        lectureHallText[3] = findViewById(R.id.lectureHall4);
-        lectureHallText[4] = findViewById(R.id.lectureHall5);
-        lectureHallText[5] = findViewById(R.id.lectureHall6);
-
-        timeText = new TextView[6];
-        timeText[0] = findViewById(R.id.time1);
-        timeText[1] = findViewById(R.id.time2);
-        timeText[2] = findViewById(R.id.time3);
-        timeText[3] = findViewById(R.id.time4);
-        timeText[4] = findViewById(R.id.time5);
-        timeText[5] = findViewById(R.id.time6);
-
-        RelativeLayout relativelayout[] = new RelativeLayout[6];
-        relativelayout[0] =(RelativeLayout) findViewById(R.id.relativelayout);
-        relativelayout[1] =(RelativeLayout) findViewById(R.id.relativelayout2);
-        relativelayout[2] =(RelativeLayout) findViewById(R.id.relativelayout3);
-        relativelayout[3] =(RelativeLayout) findViewById(R.id.relativelayout4);
-        relativelayout[4] =(RelativeLayout) findViewById(R.id.relativelayout5);
-        relativelayout[5] =(RelativeLayout) findViewById(R.id.relativelayout6);
-
+        int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         String day = ((TextView)view).getText().toString();
-        int numberOfDay;
-        int countLesson = 0, realCountLesson = 0;
         switch(day){
             case("Пн"):
-                SetDay(0,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                if(week % 2 == 0){
+                    SetDay(0,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }else{
+                    SetDay(6,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }
                 break;
             case("Вт"):
-                SetDay(1,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                if(week % 2 == 0){
+                    SetDay(1,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }else{
+                    SetDay(7,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }
                 break;
             case("Ср"):
-                SetDay(2,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                if(week % 2 == 0){
+                    SetDay(2,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }else{
+                    SetDay(8,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }
                 break;
             case("Чт"):
-                SetDay(3,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                if(week % 2 == 0){
+                    SetDay(3,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }else{
+                    SetDay(9,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }
                 break;
             case("Пт"):
-                SetDay(4,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                if(week % 2 == 0){
+                    SetDay(4,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }else{
+                    SetDay(10,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }
                 break;
             case("Сб"):
-                SetDay(5,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                if(week % 2 == 0){
+                    SetDay(5,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }else{
+                    SetDay(11,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
+                }
                 break;
         }
     }
@@ -189,7 +191,62 @@ public class MainActivity extends AppCompatActivity {
             lectureHallText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetLectureHall());
             teacherText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTeacher());
             timeText[realCountLesson].setText(arrTimeTable[numberOfDay].lessons[countLesson].GetTime());
-            realCountLesson++;
         }
+    }
+
+    RelativeLayout[] getLayout(){
+        RelativeLayout out[] = new RelativeLayout[6];
+        out[0] = findViewById(R.id.relativelayout);
+        out[1] = findViewById(R.id.relativelayout2);
+        out[2] = findViewById(R.id.relativelayout3);
+        out[3] = findViewById(R.id.relativelayout4);
+        out[4] = findViewById(R.id.relativelayout5);
+        out[5] = findViewById(R.id.relativelayout6);
+        return out;
+    }
+
+    TextView[] getTimeText(){
+        TextView[] timeText = new TextView[6];
+        timeText[0] = findViewById(R.id.time1);
+        timeText[1] = findViewById(R.id.time2);
+        timeText[2] = findViewById(R.id.time3);
+        timeText[3] = findViewById(R.id.time4);
+        timeText[4] = findViewById(R.id.time5);
+        timeText[5] = findViewById(R.id.time6);
+        return timeText;
+    }
+
+    TextView[] getLectureHallText(){
+        TextView[] lectureHallText = new TextView[6];
+        lectureHallText[0] = findViewById(R.id.lectureHall1);
+        lectureHallText[1] = findViewById(R.id.lectureHall2);
+        lectureHallText[2] = findViewById(R.id.lectureHall3);
+        lectureHallText[3] = findViewById(R.id.lectureHall4);
+        lectureHallText[4] = findViewById(R.id.lectureHall5);
+        lectureHallText[5] = findViewById(R.id.lectureHall6);
+
+        return lectureHallText;
+    }
+
+    TextView[] getTeacherText(){
+        TextView[] teacherText = new TextView[6];
+        teacherText[0] = findViewById(R.id.teacher1);
+        teacherText[1] = findViewById(R.id.teacher2);
+        teacherText[2] = findViewById(R.id.teacher3);
+        teacherText[3] = findViewById(R.id.teacher4);
+        teacherText[4] = findViewById(R.id.teacher5);
+        teacherText[5] = findViewById(R.id.teacher6);
+        return teacherText;
+    }
+
+    TextView[] getStudyObjText(){
+        TextView[] studyObjText = new TextView[6];
+        studyObjText[0] = findViewById(R.id.studyObj1);
+        studyObjText[1] = findViewById(R.id.studyObj2);
+        studyObjText[2] = findViewById(R.id.studyObj3);
+        studyObjText[3] = findViewById(R.id.studyObj4);
+        studyObjText[4] = findViewById(R.id.studyObj5);
+        studyObjText[5] = findViewById(R.id.studyObj6);
+        return studyObjText;
     }
 }

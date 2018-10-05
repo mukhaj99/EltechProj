@@ -1,4 +1,4 @@
-#Fri Oct 05 20:20:21 MSK 2018
+#Fri Oct 05 21:20:50 MSK 2018
 base.0=/home/max/AndroidStudioProjects/Test/app/build/intermediates/transforms/dexMerger/debug/9
 path.0=classes.dex
 renamed.0=classes.dex
