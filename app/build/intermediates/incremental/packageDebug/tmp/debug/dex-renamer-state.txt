@@ -1,4 +1,4 @@
-#Sat Oct 06 20:39:01 MSK 2018
+#Sat Oct 06 20:59:10 MSK 2018
 base.0=C\:\\Users\\schal\\StudioProjects\\EltechProj\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.1=classes.dex
 renamed.1=classes2.dex

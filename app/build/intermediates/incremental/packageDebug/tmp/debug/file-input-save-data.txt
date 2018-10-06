@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Oct 06 20:39:02 MSK 2018
+#Sat Oct 06 20:59:10 MSK 2018
 1.base=C\:\\Users\\schal\\StudioProjects\\EltechProj\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
