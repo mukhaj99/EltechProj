@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, Weeks);
         String selected = spinner.getSelectedItem().toString();
+        spinner.setAdapter(adapter);
 
         String[] oneDay;
         String delimeter = ",";
