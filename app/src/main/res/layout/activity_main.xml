@@ -11,7 +11,7 @@
         android:id="@+id/layout1"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_width="match_parent" >
+        android:layout_width="match_parent">
 
         <Button
             android:id="@+id/button6"
@@ -88,14 +88,18 @@
         android:layout_below="@+id/layout1"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
 
 
         <TextView
             android:id="@+id/studyObj1"
+            android:textSize="@dimen/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="@string/Lesson_name" />
 
         <TextView
@@ -103,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/studyObj1"
+            android:textColor="@color/textColor"
             android:text="@string/Teacher" />
 
         <TextView
@@ -111,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher1"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/textColor"
             android:text="@string/Lecture_hall" />
 
         <TextView
@@ -118,6 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher1"
+            android:textColor="@color/textColor"
             android:text="@string/Time" />
 
     </RelativeLayout>
@@ -130,12 +137,16 @@
         android:layout_below="@+id/relativelayout"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
         <TextView
             android:id="@+id/studyObj2"
+            android:textSize="@dimen/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="@string/Lesson_name" />
 
         <TextView
@@ -143,6 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/studyObj2"
+            android:textColor="@color/textColor"
             android:text="@string/Teacher" />
 
         <TextView
@@ -151,6 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher2"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/textColor"
             android:text="@string/Lecture_hall" />
 
         <TextView
@@ -158,6 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher2"
+            android:textColor="@color/textColor"
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
@@ -166,14 +180,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/relativelayout2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:layout_alignParentStart ="true"
+        android:layout_marginTop ="15dp"
+        android:orientation ="vertical"
+        android:layout_marginStart ="15dp"
+        android:layout_marginEnd ="15dp">
 
         <TextView
             android:id="@+id/studyObj3"
+            android:textSize="@dimen/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="@string/Lesson_name" />
 
         <TextView
@@ -181,6 +199,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/studyObj3"
+            android:textColor="@color/textColor"
             android:text="@string/Teacher" />
 
         <TextView
@@ -189,6 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher3"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/textColor"
             android:text="@string/Lecture_hall" />
 
         <TextView
@@ -196,6 +216,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher3"
+            android:textColor="@color/textColor"
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
@@ -206,12 +227,16 @@
         android:layout_below="@+id/relativelayout3"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
         <TextView
             android:id="@+id/studyObj4"
+            android:textSize="@dimen/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="@string/Lesson_name" />
 
         <TextView
@@ -219,6 +244,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/studyObj4"
+            android:textColor="@color/textColor"
             android:text="@string/Teacher" />
 
         <TextView
@@ -227,6 +253,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher4"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/textColor"
             android:text="@string/Lecture_hall" />
 
         <TextView
@@ -234,6 +261,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher4"
+            android:textColor="@color/textColor"
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
@@ -244,12 +272,16 @@
         android:layout_below="@+id/relativelayout4"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
         <TextView
             android:id="@+id/studyObj5"
+            android:textSize="@dimen/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="@string/Lesson_name" />
 
         <TextView
@@ -257,6 +289,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/studyObj5"
+            android:textColor="@color/textColor"
             android:text="@string/Teacher" />
 
         <TextView
@@ -265,6 +298,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher5"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/textColor"
             android:text="@string/Lecture_hall" />
 
         <TextView
@@ -272,6 +306,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher5"
+            android:textColor="@color/textColor"
             android:text="@string/Time" />
     </RelativeLayout>
     <RelativeLayout
@@ -282,12 +317,16 @@
         android:layout_below="@+id/relativelayout5"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
         <TextView
             android:id="@+id/studyObj6"
+            android:textSize="@dimen/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
             android:text="@string/Lesson_name" />
 
         <TextView
@@ -295,6 +334,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/studyObj6"
+            android:textColor="@color/textColor"
             android:text="@string/Teacher" />
 
         <TextView
@@ -303,6 +343,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher6"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/textColor"
             android:text="@string/Lecture_hall" />
 
         <TextView
@@ -310,6 +351,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/teacher6"
+            android:textColor="@color/textColor"
             android:text="@string/Time" />
     </RelativeLayout>
 
