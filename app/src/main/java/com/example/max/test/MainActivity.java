@@ -1,9 +1,17 @@
 package com.example.max.test;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -30,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         timeText = getTimeText();
         relativelayout = getLayout();
 
+        String Weeks[] = { "Четная неделя", "Нечетная неделя" };
+
         InputStream is = getResources().openRawResource(R.raw.inputtimetable);
         try {
             reader = new BufferedReader(new InputStreamReader(is, "utf-8"));
@@ -41,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 timeTableString[i] = reader.readLine();
             } catch (IOException e) { e.printStackTrace(); }
         }
+
+
+        Spinner spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, Weeks);
+        String selected = spinner.getSelectedItem().toString();
 
         String[] oneDay;
         String delimeter = ",";
@@ -65,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         }else {
             if(week%2 == 0) {
                 SetDay(day - 2, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+            }else{
+                SetDay(day - 2 + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
             }
         }
     }
@@ -78,10 +95,14 @@ public class MainActivity extends AppCompatActivity {
         lectureHallText = getLectureHallText();
         timeText = getTimeText();
 
+        Button butt;
+
         int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         String day = ((TextView)view).getText().toString();
         switch(day){
             case("Пн"):
+                butt = findViewById(R.id.button);
+                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if(week % 2 == 0){
                     SetDay(0,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 }else{
@@ -89,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case("Вт"):
+                butt = findViewById(R.id.button1);
+                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if(week % 2 == 0){
                     SetDay(1,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 }else{
@@ -96,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case("Ср"):
+                butt = findViewById(R.id.button2);
+                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if(week % 2 == 0){
                     SetDay(2,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 }else{
@@ -103,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case("Чт"):
+                butt = findViewById(R.id.button3);
+                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if(week % 2 == 0){
                     SetDay(3,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 }else{
@@ -110,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case("Пт"):
+                butt = findViewById(R.id.button4);
+                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if(week % 2 == 0){
                     SetDay(4,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 }else{
@@ -117,6 +146,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case("Сб"):
+                butt = findViewById(R.id.button5);
+                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if(week % 2 == 0){
                     SetDay(5,relativelayout, studyObjText, lectureHallText,teacherText,timeText);
                 }else{

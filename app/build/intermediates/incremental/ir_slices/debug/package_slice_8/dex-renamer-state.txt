@@ -1,4 +1,4 @@
-#Sat Oct 06 20:24:49 MSK 2018
-base.0=C\:\\Users\\schal\\StudioProjects\\EltechProj\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
+#Sun Oct 07 20:09:21 MSK 2018
+base.0=/home/max/AndroidStudioProjects/EltechProj1/app/build/intermediates/transforms/dexMerger/debug/8
 path.0=classes.dex
 renamed.0=classes.dex

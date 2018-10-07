@@ -12,4 +12,9 @@
     <string name="friday">Пт</string>
     <string name="saturday">Сб</string>
 
+    <string-array name="Weeks">
+        <item>Четная неделя</item>
+        <item>Нечетная неделя</item>
+    </string-array>
+
 </resources>
