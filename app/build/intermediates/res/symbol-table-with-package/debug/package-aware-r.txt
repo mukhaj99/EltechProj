@@ -635,6 +635,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable inprocess
 drawable layout_bg
 drawable notification_action_background
 drawable notification_bg
@@ -726,6 +727,12 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
+id imageView2
+id imageView3
+id imageView4
+id imageView5
+id imageView6
 id info
 id invisible
 id italic
@@ -881,6 +888,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout spinner_item
 layout support_simple_spinner_dropdown_item
+layout time_table
 mipmap ic_launcher
 mipmap ic_launcher_round
 raw inputtimetable
@@ -889,6 +897,8 @@ string Lesson_name
 string Number
 string Teacher
 string Time
+string Week1
+string Week2
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
