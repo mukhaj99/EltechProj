@@ -637,6 +637,8 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable inprocess
 drawable layout_bg
+drawable leti
+drawable leti2
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/max/AndroidStudioProjects/EltechProj1/app/build/intermediates/res/merged/debug/drawable_leti.png.flat",
+        "source": "/home/max/AndroidStudioProjects/EltechProj1/app/src/main/res/drawable/leti.png"
+    },
+    {
         "merged": "/home/max/AndroidStudioProjects/EltechProj1/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "/home/max/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/16200f07dce52471fb6ee79604eced5d/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
@@ -1130,6 +1134,10 @@
     {
         "merged": "/home/max/AndroidStudioProjects/EltechProj1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "/home/max/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/16200f07dce52471fb6ee79604eced5d/res/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/home/max/AndroidStudioProjects/EltechProj1/app/build/intermediates/res/merged/debug/drawable_leti2.png.flat",
+        "source": "/home/max/AndroidStudioProjects/EltechProj1/app/src/main/res/drawable/leti2.png"
     },
     {
         "merged": "/home/max/AndroidStudioProjects/EltechProj1/app/build/intermediates/res/merged/debug/drawable_abc_text_cursor_material.xml.flat",

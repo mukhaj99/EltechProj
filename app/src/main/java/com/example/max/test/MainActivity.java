@@ -1,32 +1,25 @@
 package com.example.max.test;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
+
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout mainLay;
     BufferedReader reader;
     Timetable[] arrTimeTable;
     TextView studyObjText[], teacherText[], lectureHallText[], timeText[];
@@ -34,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ImageView inProcessArr[];
     String Weeks[] = {"Четная неделя", "Нечетная неделя"};
+    Button dayButton[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, Weeks);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, Weeks);
         spinner.setAdapter(adapter);
+        spinner.setSelection(calendar.get(Calendar.WEEK_OF_YEAR)%2);
         String selected = spinner.getSelectedItem().toString();
 
-        int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        week %= 2;
-        //spinner.setSelection(week);
-
-        boolean isParity = false;
+        boolean isParity;
         isParity = selected.equals(String.valueOf(R.string.Week2));
 
         String[] oneDay;
@@ -115,17 +106,14 @@ public class MainActivity extends AppCompatActivity {
         teacherText = getTeacherText();
         lectureHallText = getLectureHallText();
         timeText = getTimeText();
+        dayButton = getDayButt();
 
         boolean isParity = (spinner.getSelectedItem().toString().equals("Четная неделя"));
 
-        Button butt;
-
-        int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         String day = ((TextView) view).getText().toString();
         switch (day) {
             case ("Пн"):
-                butt = findViewById(R.id.button);
-                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                dayButton[0].setPaintFlags(dayButton[0].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
                     SetDay(0, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
@@ -133,8 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case ("Вт"):
-                butt = findViewById(R.id.button1);
-                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                dayButton[1].setPaintFlags(dayButton[1].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
                     SetDay(1, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
@@ -142,8 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case ("Ср"):
-                butt = findViewById(R.id.button2);
-                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                dayButton[2].setPaintFlags(dayButton[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
                     SetDay(2, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
@@ -151,8 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case ("Чт"):
-                butt = findViewById(R.id.button3);
-                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                dayButton[3].setPaintFlags(dayButton[3].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
                     SetDay(3, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
@@ -160,11 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case ("Пт"):
-                butt = findViewById(R.id.button4);
-                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "В пятницу отдыхаем, чььььььььььььмо", Toast.LENGTH_SHORT);
-                toast.show();
+                dayButton[4].setPaintFlags(dayButton[4].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
                     SetDay(4, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
@@ -172,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case ("Сб"):
-                butt = findViewById(R.id.button5);
-                butt.setPaintFlags(butt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                dayButton[5].setPaintFlags(dayButton[5].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
                     SetDay(5, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
@@ -266,6 +246,23 @@ public class MainActivity extends AppCompatActivity {
         out[5] = findViewById(R.id.relativelayout6);
         out[5].setVisibility(View.INVISIBLE);
         return out;
+    }
+
+    Button[] getDayButt(){
+        Button butt[] = new Button[6];
+        butt[0] = findViewById(R.id.button);
+        butt[0].setPaintFlags(butt[0].getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
+        butt[1] = findViewById(R.id.button1);
+        butt[1].setPaintFlags(butt[1].getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
+        butt[2] = findViewById(R.id.button2);
+        butt[2].setPaintFlags(butt[2].getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
+        butt[3] = findViewById(R.id.button3);
+        butt[3].setPaintFlags(butt[3].getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
+        butt[4] = findViewById(R.id.button4);
+        butt[4].setPaintFlags(butt[4].getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
+        butt[5] = findViewById(R.id.button5);
+        butt[5].setPaintFlags(butt[5].getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
+        return butt;
     }
 
     ImageView[] getImageView(){
