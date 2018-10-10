@@ -5,12 +5,14 @@ import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +22,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    int currentDay = -1;    //Flag for onItemSelectedListener and global var for current day in TimeTable
     BufferedReader reader;
     Timetable[] arrTimeTable;
     TextView studyObjText[], teacherText[], lectureHallText[], timeText[];
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         lectureHallText = getLectureHallText();
         timeText = getTimeText();
         relativelayout = getLayout();
+        dayButton = getDayButt();
 
         //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 
@@ -61,16 +65,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-        spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, Weeks);
-        spinner.setAdapter(adapter);
-        spinner.setSelection(calendar.get(Calendar.WEEK_OF_YEAR)%2);
-        String selected = spinner.getSelectedItem().toString();
-
-        boolean isParity;
-        isParity = selected.equals(String.valueOf(R.string.Week2));
-
         String[] oneDay;
         String delimeter = ",";
         String[] listOfTime = timeTableString[0].split(delimeter);
@@ -87,15 +81,36 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
-        if (day == 1) {
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, Weeks);
+        spinner.setAdapter(adapter);
+        spinner.setSelection(calendar.get(Calendar.WEEK_OF_YEAR)%2);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if(currentDay != -1){
+                    dayButton[currentDay].performClick();
+                    //SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        String selected = spinner.getSelectedItem().toString();
+
+        boolean isParity;
+        isParity = selected.equals("Четная неделя");
+
+        currentDay = calendar.get(Calendar.DAY_OF_WEEK);
+        if (currentDay == 1) {
             //ToDo Выходной
         } else {
-            if (isParity) {
-                SetDay(day - 2, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
-            } else {
-                SetDay(day - 2 + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
-            }
+            dayButton[currentDay-2].performClick();
         }
     }
 
@@ -113,51 +128,57 @@ public class MainActivity extends AppCompatActivity {
         String day = ((TextView) view).getText().toString();
         switch (day) {
             case ("Пн"):
-                dayButton[0].setPaintFlags(dayButton[0].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                currentDay = 0;
+                dayButton[currentDay].setPaintFlags(dayButton[currentDay].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
-                    SetDay(0, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
-                    SetDay(6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 }
                 break;
             case ("Вт"):
-                dayButton[1].setPaintFlags(dayButton[1].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                currentDay = 1;
+                dayButton[currentDay].setPaintFlags(dayButton[currentDay].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
-                    SetDay(1, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
-                    SetDay(7, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 }
                 break;
             case ("Ср"):
-                dayButton[2].setPaintFlags(dayButton[2].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                currentDay = 2;
+                dayButton[currentDay].setPaintFlags(dayButton[currentDay].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
-                    SetDay(2, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
-                    SetDay(8, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 }
                 break;
             case ("Чт"):
-                dayButton[3].setPaintFlags(dayButton[3].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                currentDay = 3;
+                dayButton[currentDay].setPaintFlags(dayButton[currentDay].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
-                    SetDay(3, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
-                    SetDay(9, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 }
                 break;
             case ("Пт"):
-                dayButton[4].setPaintFlags(dayButton[4].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                currentDay = 4;
+                dayButton[currentDay].setPaintFlags(dayButton[currentDay].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
-                    SetDay(4, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
-                    SetDay(10, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 }
                 break;
             case ("Сб"):
-                dayButton[5].setPaintFlags(dayButton[5].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                currentDay = 5;
+                dayButton[currentDay].setPaintFlags(dayButton[currentDay].getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 if (isParity) {
-                    SetDay(5, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 } else {
-                    SetDay(11, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
+                    SetDay(currentDay + 6, relativelayout, studyObjText, lectureHallText, teacherText, timeText);
                 }
                 break;
         }
