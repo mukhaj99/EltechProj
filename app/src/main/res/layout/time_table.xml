@@ -10,85 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/layout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:onClick="DayClickListener"
-                android:text="@string/monday"
-                android:textColor="#ffff"
-                tools:layout_editor_absoluteX="254dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:onClick="DayClickListener"
-                android:text="@string/tuesday"
-                android:textColor="#ffff"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:onClick="DayClickListener"
-                android:text="@string/wednesday"
-                android:textColor="#ffff"
-                tools:layout_editor_absoluteX="154dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:onClick="DayClickListener"
-                android:text="@string/thursday"
-                android:textColor="#ffff" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:onClick="DayClickListener"
-                android:text="@string/friday"
-                android:textColor="#ffff"
-                tools:layout_editor_absoluteX="304dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:onClick="DayClickListener"
-                android:text="@string/saturday"
-                android:textColor="#ffff"
-                tools:layout_editor_absoluteX="104dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-        </LinearLayout>
-
         <RelativeLayout
             android:id="@+id/relativelayout"
             android:layout_width="match_parent"
@@ -100,7 +21,7 @@
             android:layout_marginEnd="15dp"
             android:background="@drawable/layout_bg"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="visible">
 
 
             <TextView
