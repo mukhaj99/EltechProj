@@ -1,10 +1,13 @@
 <resources>
-    <string name="app_name">Расписание</string>
+    <string name="app_name">Eltech</string>
+    <string name="news_button1">Новости</string>
+    <string name="schedule">Расписание</string>
     <string name="Lesson_name">Название пары</string>
     <string name="Lecture_hall">Аудитория</string>
     <string name="Teacher">Преподаватель</string>
     <string name="Time">Время</string>
     <string name="Number">№ пары</string>
+
     <string name="monday">Пн</string>
     <string name="tuesday">Вт</string>
     <string name="wednesday">Ср</string>
